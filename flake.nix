@@ -89,7 +89,7 @@
           pythonConfig = import ./python.nix { inherit pkgs; };
         in
         {
-#           inherit (pythonConfig) python3;
+           inherit (pythonConfig) python3;
 
           # to define and use a new category, simply add a new list to a set here,
           # and later, you will include categoryname = true; in the set you
@@ -203,18 +203,18 @@
           # vim.g.python3_host_prog
           # or run from nvim terminal via :!<packagename>-python3
           # python3.libraries = { test = (_: [ ]); };
-          python3 = {
-            libraries = {
-              python = (py: [
-                py.debugpy
-                py.pylsp-mypy
-                py.pyls-isort
-                py.python-lsp-server
-                py.pytest
-                py.pylint
-              ]);
-            };
-          };
+#           python3 = {
+#             libraries = {
+#               python = (py: [
+#                 py.debugpy
+#                 py.pylsp-mypy
+#                 py.pyls-isort
+#                 py.python-lsp-server
+#                 py.pytest
+#                 py.pylint
+#               ]);
+#             };
+#           };
 
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = { test = [ (_: [ ]) ]; };
