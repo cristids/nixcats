@@ -29,8 +29,8 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
-    local dap_python = require('dap-python')
-    dap_python.setup(vim.fn.getcwd() .. '/.venv/bin/python')
+--     local dap_python = require('dap-python')
+--     dap_python.setup(vim.fn.getcwd() .. '/.venv/bin/python')
 
     -- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
     if not require('nixCatsUtils').isNixCats then
