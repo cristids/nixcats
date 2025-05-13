@@ -85,9 +85,9 @@
       # :help nixCats.flake.outputs.categoryDefinitions.scheme
       categoryDefinitions =
         { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef:
-#         let
-#           pythonConfig = import ./python.nix { inherit pkgs; };
-#         in
+        let
+          pythonConfig = import ./python.nix { inherit pkgs; };
+        in
         {
 #           inherit (pythonConfig) python3;
 
