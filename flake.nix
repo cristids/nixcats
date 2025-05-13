@@ -84,7 +84,14 @@
       # and
       # :help nixCats.flake.outputs.categoryDefinitions.scheme
       categoryDefinitions =
-        { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
+        { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef:
+        let
+          pythonConfig = import ./python.nix { inherit pkgs; };
+        in
+        {
+          inherit (pythonConfig) python3;
+        };
+        {
           # to define and use a new category, simply add a new list to a set here,
           # and later, you will include categoryname = true; in the set you
           # provide when you build the package using this builder function.
@@ -196,23 +203,8 @@
           # in your lua config via
           # vim.g.python3_host_prog
           # or run from nvim terminal via :!<packagename>-python3
-          #python3.libraries = { test = (_: [ ]); };
-          python3.libraries = {
-            python = (py: [
-              py.debugpy
-              py.pylsp-mypy
-              py.pyls-isort
-              py.python-lsp-server
-              # py.python-lsp-black
-              py.pytest
-              py.pylint
-              # python-lsp-ruff
-              # pyls-flake8
-              # pylsp-rope
-              # yapf
-              # autopep8
-            ]);
-          };
+          python3.libraries = { test = (_: [ ]); };
+
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = { test = [ (_: [ ]) ]; };
         };
