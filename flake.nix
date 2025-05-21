@@ -125,6 +125,7 @@
               nixd
               stylua
               lazygit
+              pyright
             ];
             kickstart-debug = [ delve ];
             kickstart-lint = [ markdownlint-cli ];
